@@ -11,11 +11,4 @@ final class CBPageHelpers {
             ['CBBlogPostPageKind']
         );
     }
-
-    /**
-     * @return [string]
-     */
-    static function classNamesForPageTemplates() {
-        return ['CBBlogPostPageTemplate', 'CBStandardPageTemplate'];
-    }
 }
