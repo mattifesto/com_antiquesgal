@@ -38,7 +38,7 @@ final class AGPageFrame {
 
             CBView::render((object)[
                 'className' => 'CBMenuView',
-                'menuID' => CBWellKnownMenuForMain::ID(),
+                'menuID' => AGMenu_main::ID(),
                 'selectedItemName' => $selectedMainMenuItemName,
             ]);
 
