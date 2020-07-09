@@ -2,6 +2,10 @@
 
 final class AGBlogPostPageTemplate {
 
+    /* -- CBInstall interfaces -- -- -- -- -- */
+
+
+
     /**
      * @return void
      */
@@ -9,12 +13,22 @@ final class AGBlogPostPageTemplate {
         CBModelTemplateCatalog::install(__CLASS__);
     }
 
+
+
     /**
      * @return [string]
      */
     static function CBInstall_requiredClassNames(): array {
-        return ['CBModelTemplateCatalog'];
+        return [
+            'CBModelTemplateCatalog'
+        ];
     }
+
+
+
+    /* -- CBModelTemplate interfaces -- -- -- -- -- */
+
+
 
     /**
      * @return model
@@ -26,20 +40,12 @@ final class AGBlogPostPageTemplate {
             'classNameForSettings' => 'AGPageSettings',
             'frameClassName' => 'AGPageFrame',
             'selectedMainMenuItemName' => 'blog',
-            'sections' => [
-                (object)[
-                    'className' => 'CBPageTitleAndDescriptionView',
-                    'showPublicationDate' => true,
-                ],
-                (object)[
-                    'className' => 'CBArtworkView',
-                ],
-                (object)[
-                    'className' => 'CBMessageView',
-                ],
-            ],
+            'sections' => CBDefaults_BlogPost::viewSpecs(),
         ];
     }
+    /* CBModelTemplate_spec() */
+
+
 
     /**
      * @return string
@@ -47,4 +53,5 @@ final class AGBlogPostPageTemplate {
     static function CBModelTemplate_title(): string {
         return 'Blog Post';
     }
+
 }
