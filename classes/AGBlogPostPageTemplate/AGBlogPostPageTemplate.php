@@ -31,17 +31,25 @@ final class AGBlogPostPageTemplate {
 
 
     /**
-     * @return model
+     * @return object
      */
-    static function CBModelTemplate_spec(): stdClass {
-        return (object)[
+    static function
+    CBModelTemplate_spec(
+    ): stdClass {
+        $spec = (object)[
             'className' => 'CBViewPage',
             'classNameForKind' => 'CBBlogPostPageKind',
             'classNameForSettings' => 'AGPageSettings',
             'frameClassName' => 'AGPageFrame',
-            'selectedMainMenuItemName' => 'blog',
             'sections' => CBDefaults_BlogPost::viewSpecs(),
         ];
+
+        CBViewPage::setSelectedMenuItemNames(
+            $spec,
+            'blog'
+        );
+
+        return $spec;
     }
     /* CBModelTemplate_spec() */
 
