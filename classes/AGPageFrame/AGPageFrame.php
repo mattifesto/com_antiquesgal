@@ -28,19 +28,30 @@ final class AGPageFrame {
      *
      * @return void
      */
-    static function CBPageFrame_render(callable $renderContent): void {
-        $selectedMainMenuItemName = CBModel::value(CBHTMLOutput::pageInformation(), 'selectedMainMenuItemName');
+    static function
+    CBPageFrame_render(
+        callable $renderContent
+    ): void {
+        $selectedMenuItemNames = CBHTMLOutput::getSelectedMenuItemNamesArray();
+
+        $selectedMainMenuItemName = (
+            count($selectedMenuItemNames) > 0 ?
+            $selectedMenuItemNames[0] :
+            ''
+        );
 
         ?>
 
         <header class="AGPageFrame_header CBDarkTheme">
             <?php
 
-            CBView::render((object)[
-                'className' => 'CBMenuView',
-                'menuID' => AGMenu_main::ID(),
-                'selectedItemName' => $selectedMainMenuItemName,
-            ]);
+            CBView::render(
+                (object)[
+                    'className' => 'CBMenuView',
+                    'menuID' => AGMenu_main::ID(),
+                    'selectedItemName' => $selectedMainMenuItemName,
+                ]
+            );
 
             ?>
         </header>
@@ -54,7 +65,13 @@ final class AGPageFrame {
         <footer class="AGPageFrame_footer CBDarkTheme">
             <div class="copyright">
                 <span>
-                    Copyright &copy; <?= gmdate('Y') . ' ' . cbhtml(CBSitePreferences::siteName()) ?>
+                    Copyright &copy; <?=
+                        gmdate('Y') .
+                        ' ' .
+                        cbhtml(
+                            CBSitePreferences::siteName()
+                        )
+                    ?>
                 </span>
             </div>
         </footer>
