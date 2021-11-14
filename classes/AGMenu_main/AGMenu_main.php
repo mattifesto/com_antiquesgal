@@ -1,11 +1,14 @@
 <?php
 
-final class AGMenu_main {
+final class
+AGMenu_main {
 
     /**
      * @return void
      */
-    static function CBInstall_install(): void {
+    static function
+    CBInstall_install(
+    ): void {
         $updater = CBModelUpdater::fetch(
             (object)[
                 'className' => 'CBMenu',
@@ -16,17 +19,30 @@ final class AGMenu_main {
         );
 
         CBModelUpdater::save($updater);
+
+        CB_StandardPageFrame::setDefaultMainMenuModelCBID(
+            AGMenu_main::ID()
+        );
     }
+    /* CBInstall_install() */
+
+
 
     /**
      * @return [string]
      */
-    static function CBInstall_requiredClassNames(): array {
+    static function
+    CBInstall_requiredClassNames(
+    ): array {
         return [
             'CBMenu',
             'CBModelUpdater',
+            'CB_StandardPageFrame',
         ];
     }
+    /* CBInstall_requiredClassNames() */
+
+
 
     /**
      * @return ID
@@ -34,4 +50,5 @@ final class AGMenu_main {
     static function ID() {
         return 'fa0a9625d16acb42a5f6fc94ff40b7e48658936b';
     }
+
 }
