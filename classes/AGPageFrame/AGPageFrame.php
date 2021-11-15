@@ -1,6 +1,7 @@
 <?php
 
-final class AGPageFrame {
+final class
+AGPageFrame {
 
     /**
      * @return [string]
@@ -22,6 +23,12 @@ final class AGPageFrame {
     static function CBInstall_requiredClassNames(): array {
         return ['CBPageFrameCatalog'];
     }
+
+
+
+    /* -- CBPageFrame interfaces -- */
+
+
 
     /**
      * @param function $renderContent
@@ -78,4 +85,18 @@ final class AGPageFrame {
 
         <?php
     }
+    /* CBPageFrame_render() */
+
+
+
+    /**
+     * @return string
+     */
+    static function
+    CBPageFrame_replacementPageFrameClassName(
+    ): string {
+        return 'CB_StandardPageFrame';
+    }
+    /* CBPageFrame_replacementPageFrameClassName() */
+
 }
