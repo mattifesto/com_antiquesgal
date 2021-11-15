@@ -1,6 +1,23 @@
 <?php
 
-final class AGPageSettings {
+final class
+AGPageSettings {
+
+    /* -- CBHTMLOutput interfaces -- */
+
+
+
+    /**
+     * @return string
+     */
+    static function
+    CBHTMLOutput_replacementClassNameForPageSettings(
+    ): string {
+        return 'CB_StandardPageSettings';
+    }
+    /* CBHTMLOutput_replacementClassNameForPageSettings() */
+
+
 
     /**
      * @return void
@@ -9,6 +26,8 @@ final class AGPageSettings {
         CBPageSettingsCatalog::install(__CLASS__);
     }
 
+
+
     /**
      * @return [string]
      */
@@ -16,12 +35,23 @@ final class AGPageSettings {
         return ['CBPageSettingsCatalog'];
     }
 
+
+
     /**
      * @return [string]
      */
-    static function CBPageSettings_htmlElementClassNames(): array {
-        return ['CBLightTheme', 'CBStyleSheet'];
+    static function
+    CBPageSettings_htmlElementClassNames(
+    ): array {
+        return [
+            'AGPageSettings',
+            'CBLightTheme',
+            'CBStyleSheet',
+        ];
     }
+    /* CBPageSettings_htmlElementClassNames() */
+
+
 
     /**
      * @return [string]
