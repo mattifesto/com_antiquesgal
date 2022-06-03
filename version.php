@@ -2,5 +2,5 @@
 
 define(
     'CBSiteVersionNumber',
-    '675.4'
+    '2022_06_03_1654272469'
 );
